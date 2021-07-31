@@ -1,0 +1,116 @@
+{{define "Index"}}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="description" content="Indices Econômicos">
+    <meta name="keywords"
+        content="Economia, Indice, Index, Financeiro, Finanças, Cambio, Dolar, Euro, Ibovespa, Bolsa, B3, Inflação, CDI, SELIC, Balança Comercial, PIB, PME, Desemprego, IGPM, IPCA, INCC, INPC, Indicadores, Economico">
+    <meta name="autor" content="Afonso Cabral">
+    <title>EconomIndex</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>EconomIndex</h1>
+        <p>Os principais indicadores econômicos em um só lugar!</p>
+    </header>
+    <main class="principal">
+        <ul class="indices">
+            <li>
+                <div class="organizer">
+                    <div class="icones dolar"></div>
+                    <div class="indicador">Dolar</div>
+                </div>
+                <div class="valores">R$ {{.Dolar}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones euro"></div>
+                    <div class="indicador">Euro</div>
+                </div>
+                <div class="valores">R$ {{.Euro}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones ibov"></div>
+                    <div class="indicador">Ibovespa</div>
+                </div>
+                <div class="valores">{{.Ibov}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones cdi"></div>
+                    <div class="indicador">CDI <span>acumulado de 12 meses</span></div>
+                </div>
+                <div class="valores">{{.Cdi}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones selic"></div>
+                    <div class="indicador">SELIC</div>
+                </div>
+                <div class="valores">{{.Selic}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones bc"></div>
+                    <div class="indicador">Balança Comercial <span>acumulado 2021</span></div>
+                </div>
+                <div class="valores">$ 36,7 bi</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones pib"></div>
+                    <div class="indicador">PIB <span>crescimento (ultimos 12 meses)</span></div>
+                </div>
+                <div class="valores">-3,8%</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones pme"></div>
+                    <div class="indicador">PME <span>trimestral</span></div>
+                </div>
+                <div class="valores">14,7%</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones igpm"></div>
+                    <div class="indicador">IGPM <span>acumulado de 12 meses</span></div>
+                </div>
+                <div class="valores">{{.Igpm}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones ipca"></div>
+                    <div class="indicador">IPCA <span>acumulado de 12 meses</span></div>
+                </div>
+                <div class="valores">{{.Ipca}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones incc"></div>
+                    <div class="indicador">INCC <span>acumulado de 12 meses</span></div>
+                </div>
+                <div class="valores">{{.Inpc}}</div>
+            </li>
+            <li>
+                <div class="organizer">
+                    <div class="icones inpc"></div>
+                    <div class="indicador">INPC <span>acumulado de 12 meses</span></div>
+                </div>
+                <div class="valores">{{.Incc}}</div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
+{{end}}

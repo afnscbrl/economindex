@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body {
+    min-height: 80vh;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color:#004225;
+    font-family: 'Montserrat', sans-serif;
+}   
+
+.cabecalho h1{
+    width: 50vw;
+    margin: 5px 25vw 5px;
+    color: white;
+    font-size: 2rem;
+}
+
+.cabecalho p{
+    width: 50vw;
+    margin: 5px 25vw 5px;
+    color: white;
+}
+
+ul {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0;
+    width: 50vw;
+    margin: 10px 25vw;
+    font-family: 'Arimo', sans-serif;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 5px 2px;
+    align-self: center;
+    height: 32px;
+    width: 50vw;
+    list-style: none;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-image: linear-gradient(to left, lightgray, white);
+}
+
+li:hover {
+    background-image: none;
+    background-color:gray;
+    color: white;
+}
+
+.organizer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 2px 5px 2px 0;
+    font-weight: bold;
+}
+
+.icones {
+    width: 30px;
+    height: 30px;
+}
+
+.indicador {
+    width: auto;
+    align-self: center;
+    margin-left: 10px;
+}
+
+
+.organizer span {
+    font-size: .8rem;
+    font-weight:normal;
+}
+
+.valores {
+    align-self: center;
+    font-weight: bold;
+}
+
+.dolar {
+    background: url(img/dolar.png) no-repeat;
+    background-size: contain;
+}
+
+.euro {
+    background: url(img/euro.png) no-repeat;
+    background-size: contain;
+}
+
+.ibov {
+    background: url(img/ibov.png) no-repeat;
+    background-size: contain;
+}
+
+.cdi {
+    background: url(img/cdi.png) no-repeat;
+    background-size: contain;
+}
+
+.selic {
+    background: url(img/selic.png) no-repeat;
+    background-size: contain;
+}
+
+.bc {
+    background: url(img/balanca_comercial.png) no-repeat;
+    background-size: contain;
+}
+
+.pib {
+    background: url(img/pib.png) no-repeat;
+    background-size: contain;
+}
+
+.pme {
+    background: url(img/pme.png) no-repeat;
+    background-size: contain;
+}
+
+.igpm {
+    background: url(img/igpm.png) no-repeat;
+    background-size: contain;
+}
+
+.ipca {
+    background: url(img/ipca.png) no-repeat;
+    background-size: contain;
+}
+
+.incc {
+    background: url(img/incc.png) no-repeat;
+    background-size: contain;
+}
+
+.inpc {
+    background: url(img/inpc.png) no-repeat;
+    background-size: contain;
+}
+
+@media screen and (max-width: 420px) {
+
+    .cabecalho h1{
+        width: 80vw;
+        margin: 10px 10vw 5px;
+        text-align: center
+    }
+
+    .cabecalho p{
+        width: 80vw;
+        margin: 1px 10vw 5px;
+        text-align: center;
+        font-weight:lighter;
+    }
+
+    ul {
+        width: 90vw;
+        margin: 10px 5vw;
+    }
+
+    li {
+        width: 90vw;
+        height: 40px;
+    }
+
+    .organizer span {
+        font-size: .7rem;
+        font-weight:lighter;
+    }
+}
