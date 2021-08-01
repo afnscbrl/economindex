@@ -4,6 +4,7 @@ import (
 	"economindex/scraps"
 	"html/template"
 	"net/http"
+	"os"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -13,7 +14,9 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":8000", nil)
+	http.ListenAndServe(port, nil)
 }
