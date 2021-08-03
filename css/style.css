@@ -115,9 +115,7 @@ li:hover > .collapsed {
 }
 
 .expand {
-    visibility: none;
-    height: 0;
-    width: 0;
+    visibility: hidden;
 }
 
 li:hover > .expand {
