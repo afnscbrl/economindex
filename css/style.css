@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 body {
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 .cabecalho {
@@ -242,6 +242,14 @@ footer {
     li {
         width: 90vw;
         height: auto;
+    }
+
+    .collapsed {
+        width: 90vw;
+    }
+
+    li:hover > .expand {
+        width: 90vw;
     }
 
     .organizer span {
