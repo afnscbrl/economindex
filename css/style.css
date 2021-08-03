@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    min-height: 100vh;
-}
-
 .cabecalho {
     display: flex;
     flex-direction: row;
@@ -202,6 +195,8 @@ li:hover > .expand p{
 }
 
 footer { 
+    position:absolute;
+    bottom:0;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -213,13 +208,12 @@ footer {
     padding: 20px 0 5px;
     font-weight: lighter;
     font-size: 0.6rem;
-    align-self: flex-end;
 }
 
 @media screen and (max-width: 420px) {
 
     .cabecalho h1{
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         width: 80vw;
         margin: 10px 0 10px 5px;
         text-align: center;
