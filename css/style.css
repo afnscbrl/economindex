@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 .cabecalho {
     display: flex;
     flex-direction: row;
@@ -159,11 +165,6 @@ li:hover > .expand p{
     background-size: contain;
 }
 
- 
- #btnSelic:checked + label > .desc__selic p{
-     padding: 5px 5px;
-}
-
 .bc {
     background: url(img/balanca_comercial.svg) no-repeat;
     background-size: contain;
@@ -211,6 +212,7 @@ footer {
     padding: 20px 0 5px;
     font-weight: lighter;
     font-size: 0.6rem;
+    align-self: flex-end;
 }
 
 @media screen and (max-width: 420px) {
