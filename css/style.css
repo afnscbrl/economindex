@@ -210,7 +210,7 @@ footer {
     font-size: 0.6rem;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 770px) {
 
     .cabecalho h1{
         font-size: 1.5rem;
