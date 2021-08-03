@@ -7,23 +7,43 @@ body {
 
 .cabecalho {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
     width: 100vw;
     background-color:#004225;
     font-family: 'Montserrat', sans-serif;
-}   
+}
+
+.logo {
+    object-fit: contain;
+    height: 60px;
+    width: 60px;
+}
+
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: auto;
+}
 
 .cabecalho h1{
-    width: 50vw;
-    margin: 5px 25vw 5px;
+    width: auto;
+    margin: 5px 5px;
     color: white;
     font-size: 2rem;
 }
 
 .cabecalho p{
-    width: 50vw;
-    margin: 5px 25vw 5px;
+    width: auto;
+    margin: 5px 5px;
     color: white;
+}
+
+.headerText span {
+    color: grey;
 }
 
 ul {
@@ -38,22 +58,34 @@ ul {
 
 li {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2px 5px 2px;
+    flex-direction: column;
+    margin: 4px 0 0;
+    align-items: center;
     align-self: center;
-    height: 32px;
+    height: auto;
     width: 50vw;
     list-style: none;
-    padding: 0 5px;
     border-radius: 10px;
-    background-image: linear-gradient(to left, lightgray, white);
 }
 
-li:hover {
+li:hover > .collapsed {
     background-image: none;
     background-color:gray;
     color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.collapsed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 4px 0 0;
+    align-self: center;
+    height: 32px;
+    width: 50vw;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-image: linear-gradient(to left, lightgray, white);
 }
 
 .organizer {
@@ -86,64 +118,104 @@ li:hover {
     font-weight: bold;
 }
 
-.dolar {
-    background: url(img/dolar.png) no-repeat;
-    background-size: contain;
+.expand {
+    visibility: hidden;
+    height: 0;
+    width: 0;
 }
 
+li:hover > .expand {
+    visibility: visible;
+    background-color:honeydew;
+    padding: 2px 5px;
+    height: auto;
+    width: 50vw;
+    border-radius: 0 0 10px 10px;
+    
+}
+
+li:hover > .expand p{
+    padding: 5px 5px;
+    text-align: justify;
+}
+
+.dolar {
+    background: url(img/dolar.svg) no-repeat;
+    background-size: contain;
+}
+ 
 .euro {
-    background: url(img/euro.png) no-repeat;
+    background: url(img/euro.svg) no-repeat;
     background-size: contain;
 }
 
 .ibov {
-    background: url(img/ibov.png) no-repeat;
+    background: url(img/ibov.svg) no-repeat;
     background-size: contain;
 }
 
 .cdi {
-    background: url(img/cdi.png) no-repeat;
+    background: url(img/cdi.svg) no-repeat;
     background-size: contain;
 }
 
 .selic {
-    background: url(img/selic.png) no-repeat;
+    background: url(img/selic.svg) no-repeat;
     background-size: contain;
 }
 
+ 
+ #btnSelic:checked + label > .desc__selic p{
+     padding: 5px 5px;
+}
+
 .bc {
-    background: url(img/balanca_comercial.png) no-repeat;
+    background: url(img/balanca_comercial.svg) no-repeat;
     background-size: contain;
 }
 
 .pib {
-    background: url(img/pib.png) no-repeat;
+    background: url(img/pib.svg) no-repeat;
     background-size: contain;
 }
 
 .pme {
-    background: url(img/pme.png) no-repeat;
+    background: url(img/pme.svg) no-repeat;
     background-size: contain;
 }
 
 .igpm {
-    background: url(img/igpm.png) no-repeat;
+    background: url(img/igpm.svg) no-repeat;
     background-size: contain;
 }
 
 .ipca {
-    background: url(img/ipca.png) no-repeat;
+    background: url(img/ipca.svg) no-repeat;
     background-size: contain;
 }
 
 .incc {
-    background: url(img/incc.png) no-repeat;
+    background: url(img/incc.svg) no-repeat;
     background-size: contain;
 }
 
 .inpc {
-    background: url(img/inpc.png) no-repeat;
+    background: url(img/inpc.svg) no-repeat;
     background-size: contain;
+}
+
+footer { 
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100vw;
+    background-color:#004225;
+    font-family: 'Montserrat', sans-serif;
+    color: lightgrey;
+    margin: 20px 0 0;
+    padding: 20px 0 5px;
+    font-weight: lighter;
+    font-size: 0.6rem;
 }
 
 @media screen and (max-width: 420px) {
