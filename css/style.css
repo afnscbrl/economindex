@@ -222,13 +222,13 @@ footer {
 
     .cabecalho h1{
         width: 80vw;
-        margin: 10px 10vw 5px;
+        margin: 10px 5px;
         text-align: center
     }
 
     .cabecalho p{
         width: 80vw;
-        margin: 1px 10vw 5px;
+        margin: 1px 5px;
         text-align: center;
         font-weight:lighter;
     }
@@ -240,7 +240,7 @@ footer {
 
     li {
         width: 90vw;
-        height: 40px;
+        height: auto;
     }
 
     .organizer span {
