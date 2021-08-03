@@ -222,13 +222,14 @@ footer {
 
     .cabecalho h1{
         width: 80vw;
-        margin: 10px 5px;
-        text-align: center
+        margin: 10px 0 10px 5px;
+        text-align: center;
+        padding: 0 5px;
     }
 
     .cabecalho p{
         width: 80vw;
-        margin: 1px 5px;
+        margin: 1px 0 5px 5px;
         text-align: center;
         font-weight:lighter;
     }
