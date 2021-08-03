@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 body {
-    min-height: 60vh;
+    min-height: 30vh;
 }
 
 .cabecalho {
@@ -221,6 +221,7 @@ footer {
 @media screen and (max-width: 420px) {
 
     .cabecalho h1{
+        font-size: 1.9rem;
         width: 80vw;
         margin: 10px 0 10px 5px;
         text-align: center;
