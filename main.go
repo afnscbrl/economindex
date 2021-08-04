@@ -9,7 +9,7 @@ import (
 )
 
 func redirectToHttps(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
+	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -26,5 +26,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	go http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
 }
