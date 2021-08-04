@@ -9,7 +9,7 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://IPaddr:443"+r.RequestURI, http.StatusMovedPermanently)
+	http.Redirect(w, r, "https://IPAddr:443"+r.RequestURI, http.StatusMovedPermanently)
 	var tmpl = template.Must(template.ParseGlob("index.html"))
 	data := scraps.Scraping()
 	tmpl.ExecuteTemplate(w, "Index", data)
