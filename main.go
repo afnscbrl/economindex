@@ -8,9 +8,9 @@ import (
 	"os"
 )
 
-// func redirectToHttps(w http.ResponseWriter, r *http.Request) {
-// 	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
-// }
+func redirectToHttps(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
+}
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseGlob("index.html"))
@@ -26,5 +26,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
 }
