@@ -34,7 +34,7 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	// redirect every http request to https
-	go http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
 	// serve index (and anything else) as https
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", Index)
