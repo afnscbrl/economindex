@@ -9,7 +9,7 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://economindex.com.br:", http.StatusMovedPermanently)
+	http.Redirect(w, r, "https://economindex.com.br", http.StatusMovedPermanently)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -26,5 +26,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
 }
