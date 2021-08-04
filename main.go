@@ -8,8 +8,11 @@ import (
 	"os"
 )
 
+func redirectToHttps(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
+}
+
 func Index(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://www.economindex.com.br", http.StatusMovedPermanently)
 	var tmpl = template.Must(template.ParseGlob("index.html"))
 	data := scraps.Scraping()
 	tmpl.ExecuteTemplate(w, "Index", data)
@@ -23,5 +26,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":"+port, http.HandlerFunc(Index))
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
 }
