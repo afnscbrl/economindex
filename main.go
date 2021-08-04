@@ -10,7 +10,7 @@ import (
 
 func redirectToHttps(w http.ResponseWriter, r *http.Request) {
 	// remove/add not default ports from req.Host
-	target := "https://" + r.Host + r.URL.Path
+	target := "https://" + r.Host + r.RequestURI
 	if len(r.URL.RawQuery) > 0 {
 		target += "?" + r.URL.RawQuery
 	}
