@@ -38,5 +38,5 @@ func main() {
 	// serve index (and anything else) as https
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", Index)
-	http.ListenAndServeTLS(":443", "cert.pem", "key.pem", mux)
+	http.ListenAndServeTLS(":"+port, "cert.pem", "key.pem", mux)
 }
