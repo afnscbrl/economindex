@@ -6,18 +6,19 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
-func redirectToHttps(w http.ResponseWriter, r *http.Request) {
-	// remove/add not default ports from req.Host
-	target := "https://" + r.Host + r.RequestURI
-	if len(r.URL.RawQuery) > 0 {
-		target += "?" + r.URL.RawQuery
+func redirect(w http.ResponseWriter, req *http.Request) {
+	_host := strings.Split(req.Host, ":")
+	_host[1] = "8443"
+
+	target := "https://" + strings.Join(_host, ":") + req.URL.Path
+	if len(req.URL.RawQuery) > 0 {
+		target += "?" + req.URL.RawQuery
 	}
-	log.Printf("redirect to: %s", target)
-	http.Redirect(w, r, target,
-		// see comments below and consider the codes 308, 302, or 301
-		http.StatusTemporaryRedirect)
+
+	http.Redirect(w, req, target, http.StatusTemporaryRedirect)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -33,10 +34,6 @@ func main() {
 	}
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
-	// redirect every http request to https
-	http.ListenAndServe(":"+port, http.HandlerFunc(redirectToHttps))
-	// serve index (and anything else) as https
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", Index)
-	http.ListenAndServeTLS(":"+port, "cert.pem", "key.pem", mux)
+	http.HandleFunc("/", Index)
+	go http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
 }
