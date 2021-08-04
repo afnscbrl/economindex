@@ -8,6 +8,10 @@ import (
 	"os"
 )
 
+func redirect(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://economindex.com.br:", http.StatusMovedPermanently)
+}
+
 func Index(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseGlob("index.html"))
 	data := scraps.Scraping()
