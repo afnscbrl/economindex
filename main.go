@@ -8,10 +8,16 @@ import (
 	"os"
 )
 
-// func redirect(w http.ResponseWriter, r *http.Request) {
-// 	http.Redirect(w, r, "https://"+r.Host, http.StatusMovedPermanently)
-// 	fmt.Println("host:", r.Host)
-// }
+func redirect(w http.ResponseWriter, req *http.Request) {
+	target := "https://" + req.Host + req.URL.Path
+	if len(req.URL.RawQuery) > 0 {
+		target += "?" + req.URL.RawQuery
+	}
+	log.Printf("redirect to: %s", target)
+	http.Redirect(w, req, target,
+		// see comments below and consider the codes 308, 302, or 301
+		http.StatusTemporaryRedirect)
+}
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseGlob("index.html"))
@@ -27,5 +33,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
 }
