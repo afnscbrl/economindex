@@ -38,7 +38,7 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
 	http.ListenAndServe(":"+port, nil)
 }
