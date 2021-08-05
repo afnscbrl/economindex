@@ -26,5 +26,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	go http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
+	http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
 }
