@@ -23,6 +23,13 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseGlob("index.html"))
 	data := scraps.Scraping()
 	tmpl.ExecuteTemplate(w, "Index", data)
+
+	if r.URL.Path != "/" {
+		log.Printf("404: %s", r.URL.String())
+		http.NotFound(w, r)
+		return
+	}
+	http.ServeFile(w, r, "index.html")
 }
 
 func main() {
@@ -31,7 +38,7 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
 	http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
 }
