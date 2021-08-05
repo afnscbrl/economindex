@@ -10,8 +10,8 @@ import (
 
 func redirect(w http.ResponseWriter, req *http.Request) {
 	target := "https://" + req.Host + req.URL.Path
-	if len(req.URL.RawQuery) > 0 {
-		target += "?" + req.URL.RawQuery
+	if len(req.URL.RawPath) > 0 {
+		target += "/" + req.URL.RawPath
 	}
 	log.Printf("redirect to: %s", target)
 	http.Redirect(w, req, target,
