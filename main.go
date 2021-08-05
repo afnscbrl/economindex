@@ -10,8 +10,8 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusMovedPermanently)
-	fmt.Println("host:", r.Host+"URL.PATH:", r.URL.Path)
+	http.Redirect(w, r, "https://"+r.Host, http.StatusMovedPermanently)
+	fmt.Println("host:", r.Host)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
