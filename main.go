@@ -2,17 +2,16 @@ package main
 
 import (
 	"economindex/scraps"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
 )
 
-func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://"+r.Host, http.StatusMovedPermanently)
-	fmt.Println("host:", r.Host)
-}
+// func redirect(w http.ResponseWriter, r *http.Request) {
+// 	http.Redirect(w, r, "https://"+r.Host, http.StatusMovedPermanently)
+// 	fmt.Println("host:", r.Host)
+// }
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	var tmpl = template.Must(template.ParseGlob("index.html"))
@@ -28,5 +27,5 @@ func main() {
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
-	http.ListenAndServe(":"+port, http.HandlerFunc(redirect))
+	http.ListenAndServe(":"+port, nil)
 }
