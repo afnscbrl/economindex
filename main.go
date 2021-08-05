@@ -9,7 +9,7 @@ import (
 )
 
 func redirect(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://"+r.Host+":8443"+r.RequestURI, http.StatusMovedPermanently)
+	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
