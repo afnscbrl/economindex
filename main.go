@@ -20,6 +20,7 @@ import (
 // }
 
 func Index(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.Host+r.URL.Path, http.StatusTemporaryRedirect)
 	var tmpl = template.Must(template.ParseGlob("index.html"))
 	data := scraps.Scraping()
 	tmpl.ExecuteTemplate(w, "Index", data)
