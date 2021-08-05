@@ -10,7 +10,7 @@ import (
 
 // func redirect(w http.ResponseWriter, req *http.Request) {
 // 	target := "https://" + req.Host + req.URL.Path
-// 	if len(req.URL.Raw) > 0 {
+// 	if len(req.URL.RawPath) > 0 {
 // 		target += "/" + req.URL.RawPath
 // 	}
 // 	log.Printf("redirect to: %s", target)
@@ -38,7 +38,7 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", Index)
 	http.ListenAndServe(":"+port, nil)
 }
