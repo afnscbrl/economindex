@@ -261,7 +261,6 @@ li:hover > .expand p{
 
 .destaque__conteudo {
     text-overflow: ellipsis;
-    text-indent: 2rem;
     text-align: justify;
     text-justify: inter-word;
     background-color:honeydew;
