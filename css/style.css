@@ -211,8 +211,9 @@ li:hover > .expand p{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     background-color: #004225;
-    color:white;
+    color:black;
 }
 
 .divisor h2 {
