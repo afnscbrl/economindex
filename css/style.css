@@ -204,7 +204,6 @@ li:hover > .expand p{
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-self: flex-end;
     margin-top: calc(100vh - 586px);
 }
 
@@ -212,7 +211,6 @@ li:hover > .expand p{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     background-color: #004225;
     color:white;
 }
